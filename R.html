@@ -1,0 +1,95 @@
+<!doctype html><html lang="pl"><head><meta charset="utf-8"><title>Giełda: W rozmowie</title>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--pl:#F0F4F9;--k:#fff;--o:#C3CEDE;--l:#E3E8EF;--t:#1F1F1F;--t2:#444746;--t3:#5E6368;--b:#0B57D0;--bj:#D3E3FD;--bjj:#EAF1FD;--gr:#041E49;
+--g:#146C2E;--gj:#C4EED0;--w:#7A4100;--wj:#FFE2B8;--r:#B3261E;--rj:#F9DEDC;--n:#E9EEF6}
+html,body{background:var(--pl);color:var(--t);font-family:'Google Sans','Figtree',system-ui,sans-serif;font-size:14px;line-height:1.45;-webkit-font-smoothing:antialiased}
+body{width:1920px;height:1031px;overflow:hidden;display:flex}
+.szyna{width:88px;flex:none;display:flex;flex-direction:column;align-items:center;padding:16px 0;gap:6px}
+.logo{width:56px;height:56px;border-radius:16px;background:var(--bj);display:grid;place-items:center;color:var(--gr);margin-bottom:22px}
+.sz{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:12.5px;font-weight:500;color:var(--t2);margin-bottom:10px}
+.sz i{width:56px;height:32px;border-radius:16px;display:grid;place-items:center}.sz.on i{background:var(--bj);color:var(--gr)}.sz.on{color:var(--t);font-weight:700}
+.dol{margin-top:auto}
+.gl{flex:1;display:flex;flex-direction:column;min-width:0;padding:12px 20px 16px 4px;gap:12px}
+.pasek{display:flex;align-items:center;gap:10px;height:44px;flex:none}
+.pasek h1{font-size:22px;font-weight:500;letter-spacing:-.2px;white-space:nowrap;margin-right:8px}
+.tb{display:inline-flex;align-items:center;gap:6px;height:36px;padding:0 16px;border-radius:18px;font-size:14px;font-weight:500;color:var(--t2);white-space:nowrap}
+.tb.on{background:var(--bj);color:var(--gr);font-weight:700}.tb .n{font-size:12.5px;opacity:.7}
+.sp{flex:1}
+.szuk{display:flex;align-items:center;gap:8px;height:40px;padding:0 16px;border-radius:20px;background:#E3E9F1;color:var(--t3);width:280px;font-size:14px}
+.karta{background:var(--k);border:1px solid var(--o);border-radius:28px}
+.chip{display:inline-flex;align-items:center;gap:5px;height:26px;padding:0 10px;border-radius:8px;font-size:12.5px;font-weight:600;white-space:nowrap}
+.chip.g{background:var(--gj);color:var(--g)}.chip.w{background:var(--wj);color:var(--w)}.chip.b{background:var(--rj);color:var(--r)}.chip.n{background:var(--n);color:var(--t2)}.chip.bl{background:var(--bj);color:var(--gr)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:44px;padding:0 20px;border-radius:22px;font-size:15px;font-weight:600;border:1px solid var(--o);background:var(--k);color:var(--t);white-space:nowrap}
+.btn.p{background:var(--b);border-color:var(--b);color:#fff}.btn.t{border-color:transparent;background:transparent;color:var(--b)}
+.kl{display:inline-grid;place-items:center;min-width:22px;height:22px;padding:0 6px;border-radius:6px;background:rgba(0,0,0,.07);font-size:12px;font-weight:700;color:inherit}
+.btn.p .kl{background:rgba(255,255,255,.22)}
+.k13{font-size:13px;color:var(--t3);font-weight:500}.kick{font-size:13px;font-weight:600;color:var(--t3);letter-spacing:.1px}
+.ell{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+img{display:block;object-fit:cover}
+.dot{width:10px;height:10px;border-radius:50%;flex:none}.dot.g{background:#1E8E3E}.dot.w{background:#E37400}.dot.b{background:#D93025}.dot.n{background:#9AA0A6}
+.oc{display:grid;grid-template-columns:repeat(6,1fr);gap:6px}
+.oc span{display:flex;flex-direction:column;align-items:center;justify-content:center;height:50px;border-radius:14px;background:#F0F4F9;font-weight:700;font-size:16px;line-height:1.15}
+.oc span small{font-size:11.5px;font-weight:500;color:var(--t3)}.oc span.on{background:var(--b);color:#fff}.oc span.on small{color:var(--bj)}
+.ak{display:flex;flex-wrap:wrap;gap:6px}
+.ak span{display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 12px;border-radius:15px;font-size:13px;border:1px solid var(--o);background:#fff}
+.ak span.jest{background:var(--gj);border-color:var(--gj);color:var(--g)}.ak span.brak{color:var(--r);border-style:dashed}.ak b{font-weight:700}
+.av{width:40px;height:40px;border-radius:50%;background:#C9D3E0;flex:none;display:inline-block}
+.sprz .av{width:36px;height:36px}
+.wia{border-radius:18px;background:#F6F8FC;border:1px solid var(--l);padding:14px 16px;font-size:14px;color:var(--t2);line-height:1.5}
+.wia .ed{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.poz{display:flex;flex-direction:column;gap:6px}
+.pole{display:flex;align-items:center;gap:8px;height:40px;padding:0 12px 0 14px;border-radius:12px;border:1px solid var(--o);font-size:14px;color:var(--t);min-width:0}
+.pole .ell{flex:1;min-width:0}.pole .zm{color:var(--b);font-weight:600;font-size:13px}
+.dod{display:inline-flex;align-items:center;gap:4px;color:var(--b);font-weight:600;font-size:13px}
+.komb{display:flex;flex-direction:column;gap:6px}
+.kw{font-size:13.5px;color:var(--t2);background:#F6F8FC;border-radius:12px;padding:8px 12px}.kw b{color:var(--t);font-weight:600}
+.kpole{display:flex;align-items:center;justify-content:space-between;height:40px;padding:0 14px;border-radius:12px;border:1px solid var(--o);color:var(--t3);font-size:14px}
+.uk{flex:1;display:grid;grid-template-columns:1fr 520px;gap:12px;min-height:0}
+.tab{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;min-height:0}
+.kol{background:#E6EBF2;border-radius:24px;padding:12px;display:flex;flex-direction:column;gap:8px;min-height:0;overflow:hidden}
+.kol-g{display:flex;align-items:center;gap:8px;padding:4px 6px 0;font-size:16px}.kol-g b{font-weight:700}
+.kol-o{padding:0 6px 4px;line-height:1.35}
+.kol-c{display:flex;flex-direction:column;gap:8px;min-height:0}
+.kb{background:#fff;border:1px solid var(--o);border-radius:18px;padding:10px;display:flex;flex-direction:column;gap:8px}
+.kb.on{border-color:var(--b);box-shadow:0 0 0 2px var(--b) inset}
+.kb-g{display:grid;grid-template-columns:56px 1fr;gap:10px;align-items:center}.kb-g img{width:56px;height:56px;border-radius:12px}
+.kb-t{min-width:0}.kb-n{font-size:14px;font-weight:600;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.kb-l{display:flex;justify-content:space-between;gap:8px;font-size:13px;color:var(--t3)}.kb-l b{color:var(--t);font-weight:600;white-space:nowrap}.kb-l b.g{color:var(--g)}.kb-l b.w{color:var(--w)}
+.kb-a{display:flex;gap:6px}.kb-a .btn{height:34px;font-size:13px;padding:0 10px;flex:1}
+.kb-k{font-size:13px;color:var(--t2);background:#F6F8FC;border-radius:10px;padding:6px 10px}
+.pus{border:2px dashed #B9C4D3;border-radius:18px;padding:18px 14px;text-align:center;color:var(--t3);font-size:13.5px;line-height:1.45}
+.szk{padding:18px 20px;display:flex;flex-direction:column;gap:12px;min-height:0}
+.szk .g2{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:110px 110px;gap:8px}.szk .g2 img{width:100%;height:100%;border-radius:14px}.szk .g2 img:first-child{grid-row:1/3}
+.szk h2{font-size:20px;font-weight:600;line-height:1.25}
+.etap{display:flex;gap:4px}.etap span{flex:1;height:6px;border-radius:3px;background:#DDE3EA}.etap span.on{background:var(--b)}
+.szk .akcje{margin-top:auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}.szk .akcje .btn{height:46px;font-size:14px;padding:0 10px}
+</style></head><body><nav class="szyna"><div class="logo"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h3l2-3h8l2 3h3v13H3z"/><circle cx="12" cy="13" r="4"/></svg></div>
+<div class="sz on"><i><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h10"/></svg></i>Ogłoszenia</div><div class="sz"><i><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></i>Wyniki</div><div class="sz"><i><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></svg></i>Ustawienia</div>
+<div class="sz dol"><i><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM2 21c0-4 3-6 7-6s7 2 7 6M16 3.5a4 4 0 0 1 0 7.5M22 21c0-3-2-5-4-5.5"/></svg></i>Dostęp</div></nav><main class="gl">
+<div class="pasek"><h1>Giełda: skup używanych</h1>
+<span class="tb">Do decyzji <span class="n">261</span></span><span class="tb on">W rozmowie <span class="n">4</span></span><span class="tb">Kupione <span class="n">0</span></span><span class="tb">Nie doszło <span class="n">1</span></span><span class="tb">Odrzucone <span class="n">1</span></span><span class="tb">Archiwum</span>
+<span class="sp"></span><span class="szuk"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg> Szukaj modelu albo sprzedawcy</span></div>
+<div class="uk">
+ <div class="tab">
+ <section class="kol"><div class="kol-g"><span class="dot w"></span><b>Napisane, czekam</b><span class="k13">3</span></div><div class="k13 kol-o">Wiadomość poszła, nie ma odpowiedzi. Po 24 godzinach karta przypomina o sobie.</div><div class="kol-c"><div class="kb"><div class="kb-g"><img src="img/29514394138163940_0.jpg" alt=""><div class="kb-t"><div class="kb-n">Panasonic Lumix DMC-FZ1000</div>
+<div class="k13 ell">Sprzedawca 8</div></div></div><div class="kb-l"><span>Napisane: Operator</span><b>21.10, 10:30</b></div><div class="kb-l"><span>W ogłoszeniu 1400 zł</span><b class="g">oferta 1889 zł</b></div><div class="kb-a"><span class="btn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 8 3 8H3s3-1 3-8M10 20a2 2 0 0 0 4 0"/></svg> Przypomnij się</span></div></div><div class="kb on"><div class="kb-g"><img src="img/29453777500892271_0.jpg" alt=""><div class="kb-t"><div class="kb-n">Aparat Sony Alpha 6400 + 18-135mm OSS + 3 baterie + Torba</div>
+<div class="k13 ell">Sprzedawca 9</div></div></div><div class="kb-l"><span>Napisane: Operator</span><b>21.10, 14:30</b></div><div class="kb-l"><span>W ogłoszeniu 1770 zł</span><b class="g">oferta w karcie</b></div><div class="kb-a"><span class="btn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 8 3 8H3s3-1 3-8M10 20a2 2 0 0 0 4 0"/></svg> Przypomnij się</span></div><div class="kb-k">1 komentarz</div></div><div class="kb"><div class="kb-g"><img src="img/29579214825015204_0.jpg" alt=""><div class="kb-t"><div class="kb-n">Canon EOS 6D + 70-200 f/4L + 50 mm f/1.8 + 35-80 – kompletny zestaw pełnoklatkowy</div>
+<div class="k13 ell">Sprzedawca 10</div></div></div><div class="kb-l"><span>Napisane: Operator</span><b>21.10, 10:49</b></div><div class="kb-l"><span>W ogłoszeniu 2000 zł</span><b class="g">oferta 3700 zł</b></div><div class="kb-a"><span class="btn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 8 3 8H3s3-1 3-8M10 20a2 2 0 0 0 4 0"/></svg> Przypomnij się</span></div></div></div></section>
+ <section class="kol"><div class="kol-g"><span class="dot bl"></span><b>Rozmawiamy</b><span class="k13">0</span></div><div class="k13 kol-o">Jest odpowiedź. Ustalasz stan, akcesoria i cenę, a wycena zmienia się bez cofania decyzji.</div><div class="kol-c"><div class="pus">Pusto. Karta trafia tu przyciskiem "Jest odpowiedź".</div></div></section>
+ <section class="kol"><div class="kol-g"><span class="dot g"></span><b>Czeka na formularz AWU</b><span class="k13">1</span></div><div class="k13 kol-o">Jest zgoda na cenę i link do formularza. Po 2 dniach bez formularza karta przypomina o sobie.</div><div class="kol-c"><div class="kb"><div class="kb-g"><img src="img/29579853288284691_0.jpg" alt=""><div class="kb-t"><div class="kb-n">Nikon 24-85 mm f2.8-4 D AF</div>
+<div class="k13 ell">Sprzedawca 11</div></div></div><div class="kb-l"><span>Zgoda na</span><b class="g">560 zł</b></div><div class="kb-l"><span>ocena 8, Operator</span><b>21.10, 10:42</b></div><div class="kb-k">Operator: Klient wypełni AWU</div><div class="kb-a"><span class="btn">Formularz jest</span><span class="btn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 8 3 8H3s3-1 3-8M10 20a2 2 0 0 0 4 0"/></svg> Przypomnij</span></div></div></div></section>
+ <section class="kol"><div class="kol-g"><span class="dot g"></span><b>W drodze do nas</b><span class="k13">0</span></div><div class="k13 kol-o">Formularz wypełniony, sprzęt jest w drodze. Po 5 dniach bez dotarcia karta przypomina o sobie.</div><div class="kol-c"><div class="pus">Pusto. Przycisk "Dotarło" kończy rozmowę i przenosi kartę do zakładki "Kupione".</div></div></section>
+ </div>
+ <section class="karta szk">
+  <div class="etap"><span class="on"></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div>
+  <div class="kb-l"><span>Napisane · Rozmawiamy · Formularz AWU · W drodze · Dotarło</span></div>
+  <div class="g2"><img src="img/29453777500892271_0.jpg" alt=""><img src="img/29453777500892271_1.jpg" alt=""><img src="img/29453777500892271_2.jpg" alt=""></div>
+  <h2>Aparat Sony Alpha 6400 + 18-135mm OSS + 3 baterie + Torba</h2>
+  <div class="kb-l"><span>Sprzedawca 9 · w ogłoszeniu 1770 zł</span><b>Napisane 21.10, 14:30</b></div>
+  <div class="poz"><span class="k13">Pozycja AWU</span><div class="pole"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><span class="ell">Sony A6400 AB Body</span><span class="zm">Zmień</span></div><div class="pole" style="color:var(--t3)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><span class="ell">Sony E 18-135 mm f3.5-5.6 OSS</span><span class="zm">Zmień</span></div><span class="dod"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg> Dodaj sprzęt z AWU</span></div>
+  <div class="komb"><span class="kick">Komentarze (1)</span><div class="kw"><b>Operator</b> <span class="k13">21.10, 14:29</span><div>Do przemyślenia</div></div><div class="kpole">Dopisz komentarz <span class="kl">C</span></div></div>
+  <div class="akcje"><span class="btn">Nie doszło</span><span class="btn">Jest odpowiedź</span><span class="btn p">Zgoda na cenę</span></div>
+ </section>
+</div></main></body></html>
