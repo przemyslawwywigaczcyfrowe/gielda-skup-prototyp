@@ -1,0 +1,105 @@
+<!doctype html><html lang="pl"><head><meta charset="utf-8"><title>Giełda C: poranny przegląd</title>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--pl:#F0F4F9;--k:#fff;--o:#C3CEDE;--l:#E3E8EF;--t:#1F1F1F;--t2:#444746;--t3:#5E6368;--b:#0B57D0;--bj:#D3E3FD;--bjj:#EAF1FD;--gr:#041E49;
+--g:#146C2E;--gj:#C4EED0;--w:#7A4100;--wj:#FFE2B8;--r:#B3261E;--rj:#F9DEDC;--n:#E9EEF6}
+html,body{background:var(--pl);color:var(--t);font-family:'Google Sans','Figtree',system-ui,sans-serif;font-size:14px;line-height:1.45;-webkit-font-smoothing:antialiased}
+body{width:1920px;height:1031px;overflow:hidden;display:flex}
+.szyna{width:88px;flex:none;display:flex;flex-direction:column;align-items:center;padding:16px 0;gap:6px}
+.logo{width:56px;height:56px;border-radius:16px;background:var(--bj);display:grid;place-items:center;color:var(--gr);margin-bottom:22px}
+.sz{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:12.5px;font-weight:500;color:var(--t2);margin-bottom:10px}
+.sz i{width:56px;height:32px;border-radius:16px;display:grid;place-items:center}.sz.on i{background:var(--bj);color:var(--gr)}.sz.on{color:var(--t);font-weight:700}
+.dol{margin-top:auto}
+.gl{flex:1;display:flex;flex-direction:column;min-width:0;padding:12px 20px 16px 4px;gap:12px}
+.pasek{display:flex;align-items:center;gap:10px;height:44px;flex:none}
+.pasek h1{font-size:22px;font-weight:500;letter-spacing:-.2px;white-space:nowrap;margin-right:8px}
+.tb{display:inline-flex;align-items:center;gap:6px;height:36px;padding:0 16px;border-radius:18px;font-size:14px;font-weight:500;color:var(--t2);white-space:nowrap}
+.tb.on{background:var(--bj);color:var(--gr);font-weight:700}.tb .n{font-size:12.5px;opacity:.7}
+.sp{flex:1}
+.szuk{display:flex;align-items:center;gap:8px;height:40px;padding:0 16px;border-radius:20px;background:#E3E9F1;color:var(--t3);width:280px;font-size:14px}
+.karta{background:var(--k);border:1px solid var(--o);border-radius:28px}
+.chip{display:inline-flex;align-items:center;gap:5px;height:26px;padding:0 10px;border-radius:8px;font-size:12.5px;font-weight:600;white-space:nowrap}
+.chip.g{background:var(--gj);color:var(--g)}.chip.w{background:var(--wj);color:var(--w)}.chip.b{background:var(--rj);color:var(--r)}.chip.n{background:var(--n);color:var(--t2)}.chip.bl{background:var(--bj);color:var(--gr)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:44px;padding:0 20px;border-radius:22px;font-size:15px;font-weight:600;border:1px solid var(--o);background:var(--k);color:var(--t);white-space:nowrap}
+.btn.p{background:var(--b);border-color:var(--b);color:#fff}.btn.t{border-color:transparent;background:transparent;color:var(--b)}
+.kl{display:inline-grid;place-items:center;min-width:22px;height:22px;padding:0 6px;border-radius:6px;background:rgba(0,0,0,.07);font-size:12px;font-weight:700;color:inherit}
+.btn.p .kl{background:rgba(255,255,255,.22)}
+.k13{font-size:13px;color:var(--t3);font-weight:500}.kick{font-size:13px;font-weight:600;color:var(--t3);letter-spacing:.1px}
+.ell{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+img{display:block;object-fit:cover}
+.dot{width:10px;height:10px;border-radius:50%;flex:none}.dot.g{background:#1E8E3E}.dot.w{background:#E37400}.dot.b{background:#D93025}.dot.n{background:#9AA0A6}
+.oc{display:grid;grid-template-columns:repeat(6,1fr);gap:6px}
+.oc span{display:flex;flex-direction:column;align-items:center;justify-content:center;height:50px;border-radius:14px;background:#F0F4F9;font-weight:700;font-size:16px;line-height:1.15}
+.oc span small{font-size:11.5px;font-weight:500;color:var(--t3)}.oc span.on{background:var(--b);color:#fff}.oc span.on small{color:var(--bj)}
+.ak{display:flex;flex-wrap:wrap;gap:6px}
+.ak span{display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 12px;border-radius:15px;font-size:13px;border:1px solid var(--o);background:#fff}
+.ak span.jest{background:var(--gj);border-color:var(--gj);color:var(--g)}.ak span.brak{color:var(--r);border-style:dashed}.ak b{font-weight:700}
+.av{width:40px;height:40px;border-radius:50%;background:#C9D3E0;flex:none;display:inline-block}
+.sprz .av{width:36px;height:36px}
+.wia{border-radius:18px;background:#F6F8FC;border:1px solid var(--l);padding:14px 16px;font-size:14px;color:var(--t2);line-height:1.5}
+.wia .ed{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+
+.uk{flex:1;display:grid;grid-template-columns:360px 1fr 560px;gap:12px;min-height:0}
+.plan{padding:22px 18px;display:flex;flex-direction:column;gap:10px}
+.plan h2{font-size:26px;font-weight:700;letter-spacing:-.4px;padding:0 6px}
+.kr{display:grid;grid-template-columns:32px 1fr;gap:12px;padding:12px;border-radius:18px;align-items:start}
+.kr .nr{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:var(--n);font-weight:700;color:var(--t2)}
+.kr b{font-size:15.5px;font-weight:600}
+.kr.on{background:var(--bjj)}.kr.on .nr{background:var(--b);color:#fff}
+.kr.ok .nr{background:var(--gj);color:var(--g)}.kr.ok b{color:var(--t3)}
+.pr{height:8px;border-radius:4px;background:#DDE3EA;overflow:hidden;margin-top:8px}.pr i{display:block;height:100%;background:var(--b)}
+.kol2{margin-top:auto;padding:14px;border-radius:18px;background:#F6F8FC;display:flex;flex-direction:column;gap:6px}
+.kol2 .ms{display:flex;gap:6px}.kol2 img{width:56px;height:56px;border-radius:10px}
+.foto{padding:14px;display:grid;grid-template-rows:1fr 110px;gap:10px;min-height:0}
+.foto>img{width:100%;height:100%;border-radius:20px;min-height:0}
+.foto .ms{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}.foto .ms img{width:100%;height:110px;border-radius:14px}.foto .ms img.on{outline:3px solid var(--b);outline-offset:-3px}
+.dc{padding:20px 22px;display:flex;flex-direction:column;gap:13px;min-height:0}
+.dc h2{font-size:24px;font-weight:600;letter-spacing:-.3px;line-height:1.25}
+.ceny{display:flex;align-items:flex-end;gap:20px}.ceny .c{font-size:46px;font-weight:700;letter-spacing:-1.4px;line-height:1}
+.ceny .w{display:flex;flex-direction:column;padding-bottom:3px}.ceny .w b{font-size:21px;font-weight:600}
+.sprz{display:flex;align-items:center;gap:10px}.sprz img{width:32px;height:32px;border-radius:50%}
+.opis{font-size:13.5px;color:var(--t2);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.klaw{height:84px;flex:none;display:flex;align-items:center;gap:12px;padding:0 18px;border-radius:28px;background:#fff;border:1px solid var(--o)}
+.klaw .btn{height:54px;font-size:16px}.klaw .btn .kl{min-width:26px;height:26px}
+</style></head><body><nav class="szyna"><div class="logo"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h3l2-3h8l2 3h3v13H3z"/><circle cx="12" cy="13" r="4"/></svg></div>
+<div class="sz on"><i><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h10"/></svg></i>Ogłoszenia</div><div class="sz"><i><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></i>Wyniki</div><div class="sz"><i><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></svg></i>Ustawienia</div>
+<div class="sz dol"><i><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM2 21c0-4 3-6 7-6s7 2 7 6M16 3.5a4 4 0 0 1 0 7.5M22 21c0-3-2-5-4-5.5"/></svg></i>Dostęp</div></nav><main class="gl">
+<div class="pasek"><h1>Giełda: skup używanych</h1>
+<span class="tb on">Przegląd na dziś</span><span class="tb">W rozmowie <span class="n">3</span></span><span class="tb">Kupione <span class="n">1</span></span><span class="tb">Wszystkie ogłoszenia <span class="n">260</span></span>
+<span class="sp"></span><span class="szuk"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg> Szukaj modelu albo sprzedawcy</span></div>
+<div class="uk">
+ <section class="karta plan">
+  <h2>Dzisiaj, 22.10</h2>
+  <span class="k13" style="padding:0 6px 6px">Od Twojej wizyty 21.10, 14:30 przyszło 8 ogłoszeń. Automat zostawił do obejrzenia te, które mają sens.</span>
+  <div class="kr on"><span class="nr">1</span><div><b>Nowe okazje: 1 z 3</b><div class="k13">Taniej albo do 30% drożej niż nasza oferta.<div class="pr"><i style="width:33%"></i></div></div></div></div>
+  <div class="kr"><span class="nr">2</span><div><b>Przypomnij się: 3 sprzedawców</b><div class="k13">Napisane wczoraj, bez odpowiedzi.</div></div></div>
+  <div class="kr"><span class="nr">3</span><div><b>Rozpoznaj sprzęt: 3</b><div class="k13">Nowe ogłoszenia, których automat nie znalazł w AWU. Wybierasz pozycję, panel liczy ofertę.</div></div></div>
+  <div class="kr"><span class="nr">4</span><div><b>Starsze okazje: 28</b><div class="k13">Jeśli zostanie czas. Po 14 dniach bez decyzji ogłoszenie idzie do archiwum samo.</div></div></div>
+  <div class="kol2"><span class="k13">Następne w kroku 1</span><div class="ms"><img src="img/29686293517640667_0.jpg" alt=""><img src="img/29691692573767428_0.jpg" alt=""></div></div>
+ </section>
+ <section class="karta foto"><img src="img/29691710087099010_0.jpg" alt=""><div class="ms"><img class="on" src="img/29691710087099010_0.jpg" alt=""><img src="img/29691710087099010_1.jpg" alt=""><img src="img/29691710087099010_2.jpg" alt=""><img src="img/29691710087099010_3.jpg" alt=""></div></section>
+ <section class="karta dc">
+  <div style="display:flex;gap:6px;flex-wrap:wrap"><span class="chip g">Taniej niż nasza oferta</span><span class="chip n"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> nowe, 09:39</span></div>
+  <h2>Canon 35/1.4 L</h2>
+  <div class="ceny"><span class="c">1499 zł</span><span class="w"><span class="k13">nasza oferta, ocena 9</span><b style="color:var(--g)">2002 zł</b></span><span class="w"><span class="k13">sprzedamy za</span><b>2790 zł</b></span></div>
+  <span class="k13">Canon EF 35 mm f1.4 L USM · AWU: kupujemy</span>
+  <div class="oc"><span class="">10<small>2264 zł</small></span><span class="on">9<small>2002 zł</small></span><span class="">8<small>1609 zł</small></span><span class="">7<small>1426 zł</small></span><span class="">6<small>1164 zł</small></span><span class="">5<small>561 zł</small></span></div>
+  <div class="ak"><span class="brak"><b>-25 zł</b> Pudełko oryginalne</span><span class="brak"><b>-25 zł</b> Dekielek obiektywu przedni Canon E-72 II</span><span class="brak"><b>-25 zł</b> Dekielek obiektywu tylny Canon EF</span><span class="brak"><b>-98 zł</b> Osłona przeciwsłoneczna Canon EW-78C</span><span class="brak"><b>-0 zł</b> Instrukcja</span><span class="brak"><b>-185 zł</b> Futerał Canon LP-1214</span></div>
+  <div class="opis">Hey,
+Canon EF 35mm f/1.4 L USM Mark I.
+Stan: bardzo zadbane. Lekkie ryski nie wplywajace na foty.
+Ostre od 1.4
+Cena: 1499 zł.
+Wrocław.</div>
+  <div class="sprz"><span class="av"></span><b style="font-weight:600">Sprzedawca 1</b><span class="k13">· profil na Facebooku</span></div>
+  <div class="wia" style="margin-top:auto"><div class="ed"><span class="kick">Wiadomość do sprzedawcy</span><span class="k13" style="color:var(--b)">Zmień treść</span></div>Dzień dobry, piszę z Cyfrowe.pl, skupujemy używany sprzęt. Czy Canon EF 35 mm f1.4 L USM jest jeszcze dostępny? Chętnie go kupimy za 1499 zł. Jeśli to Panu/Pani odpowiada, wyślę link do formularza skupu.</div>
+ </section>
+</div>
+<div class="klaw">
+ <span class="btn p"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></svg> Skopiuj wiadomość i otwórz post <span class="kl">K</span></span>
+ <span class="btn">Nie interesuje <span class="kl">N</span></span>
+ <span class="btn">Wrócę później <span class="kl">P</span></span>
+ <span class="sp"></span>
+ <span class="k13">Ocena <span class="kl">0</span> to 10, <span class="kl">9</span>-<span class="kl">5</span> · poprzednie <span class="kl">←</span> · odrzuć z powodem <span class="kl">O</span> · komentarz <span class="kl">C</span></span>
+</div></main></body></html>

@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="pl"><head><title>Giełda: praca skupu</title>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap">
+<style>
+/* Układ: cel narzędzia, fakty z danych, zasady wspólne, trzy warianty w zakładkach ze zrzutem Full HD, porównanie i decyzje */
+:root{--bg:#F0F4F9;--k:#fff;--o:#C3CEDE;--t:#1F1F1F;--t2:#444746;--b:#0B57D0;--bn:#fff;--bj:#D3E3FD;--g:#146C2E;--gj:#C4EED0;--r:#B3261E;--rj:#F9DEDC;--w:#7A4100;--wj:#FFE2B8;
+--f:'Figtree','Google Sans',system-ui,sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#131619;--k:#1E2226;--o:#3A424C;--t:#E3E3E3;--t2:#B4BAC2;--b:#A8C7FA;--bn:#062E6F;--bj:#0B3A80;--g:#8FD9A4;--gj:#16361F;--r:#F2B8B5;--rj:#4A1F1C;--w:#FFCC80;--wj:#3D2A0A;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#131619;--k:#1E2226;--o:#3A424C;--t:#E3E3E3;--t2:#B4BAC2;--b:#A8C7FA;--bn:#062E6F;--bj:#0B3A80;--g:#8FD9A4;--gj:#16361F;--r:#F2B8B5;--rj:#4A1F1C;--w:#FFCC80;--wj:#3D2A0A;color-scheme:dark}
+body{background:var(--bg);color:var(--t);font-family:var(--f);font-size:16px;line-height:1.55;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 56px}
+.w{max-width:1500px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+h1{font-size:clamp(28px,4vw,42px);font-weight:800;letter-spacing:-.6px;line-height:1.15;text-wrap:balance}
+h2{font-size:24px;font-weight:700;letter-spacing:-.3px;text-wrap:balance}
+p{max-width:78ch}
+.wst{color:var(--t2);font-size:17px}
+.kar{background:var(--k);border:1px solid var(--o);border-radius:28px;padding:22px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.fakty{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.fakty div{padding:14px 16px;border-radius:18px;background:var(--bg);min-width:0}
+.fakty b{display:block;font-size:30px;font-weight:800;letter-spacing:-.5px;line-height:1.1;font-variant-numeric:tabular-nums}
+.fakty span{font-size:14px;color:var(--t2)}
+ul.l{padding-left:20px;display:flex;flex-direction:column;gap:6px;max-width:90ch}
+ol.z{padding-left:22px;display:flex;flex-direction:column;gap:8px;max-width:90ch}
+ol.z b{font-weight:700}
+.tabs{display:flex;flex-wrap:wrap;gap:8px}
+.tabs button{font:inherit;font-weight:600;font-size:15px;height:44px;padding:0 20px;border-radius:22px;border:1px solid var(--o);background:var(--k);color:var(--t);cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--b);border-color:var(--b);color:var(--bn)}
+.tabs button:focus-visible{outline:3px solid var(--b);outline-offset:2px}
+.zrz{overflow-x:auto;border-radius:16px;border:1px solid var(--o)}
+.zrz img{display:block;width:100%;min-width:900px;max-width:none;height:auto}
+.dwa{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.dwa>div{min-width:0;padding:16px 18px;border-radius:20px}
+.plus{background:var(--gj)}.minus{background:var(--rj)}
+.dwa h3{font-size:15px;font-weight:700;margin-bottom:6px}.plus h3{color:var(--g)}.minus h3{color:var(--r)}
+.dwa ul{padding-left:18px;display:flex;flex-direction:column;gap:4px}
+.tw{overflow-x:auto}
+.tab{width:100%;border-collapse:collapse;font-size:15px}
+.tab th,.tab td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--o);vertical-align:top}
+.tab th{font-weight:600;color:var(--t2);font-size:13.5px}
+.rek{padding:16px 18px;border-radius:20px;background:var(--bj)}
+.dec{padding:16px 18px;border-radius:20px;background:var(--wj)}
+.dec h3{font-size:16px;font-weight:700;color:var(--w);margin-bottom:6px}
+@media (max-width:900px){.fakty{grid-template-columns:1fr 1fr}.dwa{grid-template-columns:1fr}}
+</style>
+</head><body><div class="w">
+<h1>Jak skup ma najprościej znajdować i odkupować sprzęt z giełdy?</h1>
+<p class="wst">To prototyp, a nie działający panel. Nazwiska sprzedawców i osób ze skupu są zastąpione, zdjęcia sprzętu pochodzą z ogłoszeń na grupie. Panel służy do jednego: nie przegapić sprzętu, który opłaca się odkupić, i doprowadzić rozmowę ze sprzedawcą do zakupu. Dziś traktuje każde ogłoszenie jak sprawę do zamknięcia, a osoba ze skupu sama pisze wiadomość, otwiera post i przy zmianie oceny cofa decyzję. Poniżej są fakty z danych, zasady, na których oparłem projekt, i trzy warianty na prawdziwych ogłoszeniach z 22.10.2026.</p>
+
+<section class="kar">
+<h2>Co widać w danych?</h2>
+<div class="fakty">
+<div><b>40-150</b><span>nowych ogłoszeń w dzień roboczy, w poniedziałek 153</span></div>
+<div><b>29 z 260</b><span>ogłoszeń bez decyzji jest tańszych niż nasza oferta przy ocenie 9</span></div>
+<div><b>7 z 23</b><span>wpisów w zakładce "Decyzje" to cofnięcia</span></div>
+<div><b>1</b><span>odrzucenie z powodem przez cały 21.10, przy 12 kontaktach</span></div>
+</div>
+<ul class="l">
+<li>Z 260 ogłoszeń bez decyzji: 29 jest tańszych niż nasza oferta, 68 do 30% droższych, 105 nie ma wyceny, bo automat nie znalazł sprzętu w AWU, 58 jest droższych o ponad 30%, a 3 to modele, których nie kupujemy.</li>
+<li>21.10 o 10:29 osoba ze skupu cofnęła 5 decyzji naraz i minutę później zapisała je znowu, Nikon 24-85 z oceną 7 zamiast 9. Ocena jest zapisana w decyzji "Kontaktuję się", więc żeby ją zmienić, trzeba cofnąć kontakt.</li>
+<li>Pozostałych ogłoszeń skup nie odrzuca, tylko je pomija. Odrzucenie to trzy kroki: przycisk, lista powodów, zapis. Dlatego lista "Do decyzji" rośnie, a ponad połowa okazji tańszych niż oferta wisi ponad tydzień.</li>
+<li>"Kontaktuję się" tylko zmienia stan w panelu. Wiadomość do sprzedawcy trzeba napisać samemu, w poście na Facebooku.</li>
+<li>Oba zapisane zakupy były droższe niż cena w ogłoszeniu: Nikon 24-85 za 560 zł przy 400 zł w ogłoszeniu, Sony FE 70-200 GM za 4213 zł przy 3650 zł (ten zakup potem cofnięto). Płacimy kwotę z AWU, a sprzedawca wypełnia formularz skupu ("Klient wypełni AWU").</li>
+<li>Akcesoria panel rozpoznaje tylko z tekstu. W Canonie 35 mm z makiet osłona EW-78C jest na zdjęciu, a panel odejmuje za nią 98 zł.</li>
+</ul>
+</section>
+
+<section class="kar">
+<h2>Na jakich zasadach oparłem wszystkie trzy warianty?</h2>
+<ol class="z">
+<li><b>Najpierw to, co nowe od ostatniej wizyty.</b> Okazja z grupy schodzi szybko, więc panel zaczyna od ogłoszeń, które przyszły od ostatniej decyzji operatora. Rano 22.10 to 8 ogłoszeń, a nie 260.</li>
+<li><b>Ogłoszenia w pasmach według ceny wobec oferty.</b> Taniej niż oferta, do 30% drożej, bez wyceny, ponad 30% drożej. W paśmie najwyżej stoi ogłoszenie z największą różnicą do ceny sprzedaży w złotych.</li>
+<li><b>Brak decyzji nic nie psuje.</b> "Nie interesuje" to jeden klawisz bez powodu. Powód zostaje tylko tam, gdzie uczy automat albo trafia do Wyników. Ogłoszenie bez decyzji po 14 dniach przechodzi do archiwum samo.</li>
+<li><b>Kontakt to jedno kliknięcie.</b> Panel kopiuje gotową wiadomość z kwotą i otwiera post. Operatorka wkleja tekst i wysyła.</li>
+<li><b>Wycena żyje w rozmowie.</b> Ocenę i akcesoria zmienia się w każdej chwili bez cofania decyzji, a panel zapisuje zmianę jako kolejny wpis z autorem.</li>
+<li><b>Rozmowa ma etapy i przypomnienia.</b> Po 24 godzinach bez odpowiedzi karta prosi o przypomnienie się sprzedawcy.</li>
+<li><b>Odpowiedź przed szczegółami.</b> Przy ogłoszeniu panel najpierw mówi, czy pisać i za ile, a dopiero niżej pokazuje wycenę, akcesoria i opis.</li>
+</ol>
+</section>
+
+<div class="tabs" role="tablist">
+<button role="tab" id="t-a" aria-selected="true" data-w="a">A. Lista z odpowiedzią</button>
+<button role="tab" id="t-b" aria-selected="false" data-w="b">B. Tablica rozmów</button>
+<button role="tab" id="t-c" aria-selected="false" data-w="c">C. Poranny przegląd</button>
+</div>
+
+<section class="kar" data-p="a">
+<h2>A. Lista z odpowiedzią</h2>
+<p>Układ, który skup zna: lista, ogłoszenie, decyzja. Na górze listy są nowe ogłoszenia od wizyty 21.10, 14:30, pod nimi pasmo "Taniej niż nasza oferta", a pozostałe pasma są zwinięte na dole. Prawa kolumna zaczyna się od odpowiedzi "Tak. Cena 1499 zł to 75% naszej oferty", pod nią są trzy kwoty, ocena, akcesoria i gotowa wiadomość. Jeden przycisk kopiuje wiadomość, otwiera post i przenosi ogłoszenie do "W rozmowie".</p>
+<p><a href="A.html" style="color:var(--b);font-weight:600">Otwórz makietę A w pełnym rozmiarze</a> (najlepiej na ekranie Full HD)</p>
+<div class="zrz"><img src="A.png" alt="Wariant A: lista z pasmami, ogłoszenie i kolumna z odpowiedzią, wyceną i gotową wiadomością"></div>
+<div class="dwa"><div class="plus"><h3>Co zyskuje skup?</h3><ul><li>Najmniejsza zmiana przyzwyczajeń, ten sam układ co dziś.</li><li>Kontakt w jednym kroku zamiast trzech.</li><li>Wszystko na pierwszym ekranie Full HD, bez przewijania.</li></ul></div>
+<div class="minus"><h3>Co traci?</h3><ul><li>Rozmowy w toku dalej są tylko listą w zakładce, bez etapów.</li><li>Nadal widać liczbę 260, choć zwinięte pasma jej nie wyciągają na wierzch.</li></ul></div></div>
+</section>
+
+<section class="kar" data-p="b" hidden>
+<h2>B. Tablica rozmów</h2>
+<p>Cała droga na jednym ekranie: Do napisania, Napisane, Rozmawiamy, Kupione, Nie doszło. Pierwsza kolumna ma tylko okazje tańsze niż oferta. Pozostałe kolumny pokazują prawdziwe stany z arkusza: 3 kontakty, zakup Nikona za 560 zł z komentarzem "Klient wypełni AWU" i dwie rozmowy zakończone bez zakupu. Kontakty sprzed 24 godzin mają przycisk "Przypomnij się". Karty przenosi się przyciskiem albo przeciąga, a kliknięcie otwiera ogłoszenie z wyceną jak w A.</p>
+<p><a href="B.html" style="color:var(--b);font-weight:600">Otwórz makietę B w pełnym rozmiarze</a> (najlepiej na ekranie Full HD)</p>
+<div class="zrz"><img src="B.png" alt="Wariant B: tablica z kolumnami od ogłoszenia do zakupu"></div>
+<div class="dwa"><div class="plus"><h3>Co zyskuje skup?</h3><ul><li>Widać każdą otwartą rozmowę i to, która czeka na odpowiedź.</li><li>Filtr "Moje" przyda się, gdy w skupie pracuje więcej osób.</li><li>Kolumna "Kupione" od razu pokazuje, co jest w drodze.</li></ul></div>
+<div class="minus"><h3>Co traci?</h3><ul><li>Do oglądania zdjęć trzeba otworzyć kartę.</li><li>Kolumna "Rozmawiamy" to nowy etap, którego dziś nie ma w danych.</li></ul></div></div>
+</section>
+
+<section class="kar" data-p="c" hidden>
+<h2>C. Poranny przegląd</h2>
+<p>Panel prowadzi przez dzień w czterech krokach: nowe okazje, przypomnienia, rozpoznanie sprzętu bez wyceny, starsze okazje. W środku jest jedno ogłoszenie z dużymi zdjęciami, a decyzja to klawisz K, N albo P. Kroki mają kolejność, bo świeże okazje schodzą najszybciej. Lista wszystkich ogłoszeń zostaje w zakładce dla kogoś, kto chce szukać sam.</p>
+<p><a href="C.html" style="color:var(--b);font-weight:600">Otwórz makietę C w pełnym rozmiarze</a> (najlepiej na ekranie Full HD)</p>
+<div class="zrz"><img src="C.png" alt="Wariant C: plan dnia w czterech krokach, jedno ogłoszenie i pasek klawiszy"></div>
+<div class="dwa"><div class="plus"><h3>Co zyskuje skup?</h3><ul><li>Rano widać, ile jest pracy i kiedy się skończy: dziś 3 nowe okazje, 3 przypomnienia, 3 sprzęty do rozpoznania.</li><li>Największe zdjęcia, łatwiej ocenić stan.</li><li>Najmniej decyzji o tym, co robić dalej.</li></ul></div>
+<div class="minus"><h3>Co traci?</h3><ul><li>Nie da się porównać dwóch ogłoszeń tego samego modelu obok siebie.</li><li>Największa zmiana przyzwyczajeń.</li></ul></div></div>
+</section>
+
+
+<section class="kar">
+<h2>Jak warianty wypadają obok siebie?</h2>
+<div class="tw"><table class="tab"><thead><tr><th>Co sprawdzam?</th><th>Dzisiaj</th><th>A</th><th>B</th><th>C</th></tr></thead><tbody>
+<tr><td>Od czego zaczyna się dzień?</td><td>260 ogłoszeń</td><td>8 nowych na górze listy</td><td>29 okazji w pierwszej kolumnie</td><td>plan: 3 + 3 + 3 + 28</td></tr>
+<tr><td>Kontakt ze sprzedawcą</td><td>przycisk, potem post i wiadomość pisana ręcznie</td><td>jedno kliknięcie</td><td>jedno kliknięcie na karcie</td><td>klawisz K</td></tr>
+<tr><td>Ogłoszenie bez znaczenia</td><td>zostaje na liście</td><td>klawisz N albo archiwum po 14 dniach</td><td>nie trafia na tablicę</td><td>klawisz N</td></tr>
+<tr><td>Zmiana oceny po kontakcie</td><td>cofnięcie i nowy kontakt</td><td>w każdej chwili</td><td>w każdej chwili</td><td>w każdej chwili</td></tr>
+<tr><td>Rozmowy w toku</td><td>lista w zakładce</td><td>lista w zakładce</td><td>kolumny z przypomnieniami</td><td>krok 2 planu</td></tr>
+<tr><td>Zmiana dla skupu</td><td>-</td><td>mała</td><td>średnia</td><td>duża</td></tr>
+</tbody></table></div>
+<p class="rek">Proponuję połączyć A i B: zakładka "Do decyzji" w układzie A, a "W rozmowie", "Kupione" i "Nie doszło" jako jedna tablica B. A rozwiązuje szukanie okazji, B pilnuje rozmów, w których ginie zakup. C zostawiłbym na później, jeśli skup zechce pracować w trybie kolejki.</p>
+</section>
+
+<section class="kar">
+<h2>Co musisz rozstrzygnąć przed wdrożeniem?</h2>
+<div class="dec"><h3>Jaką kwotę wpisać do wiadomości?</h3><p>W makietach wiadomość podaje cenę z ogłoszenia, gdy jest niższa od naszej oferty, i naszą ofertę, gdy jest wyższa. Skup płacił jednak kwotę z AWU także wtedy, gdy ogłoszenie było tańsze. Wariant A: cena z ogłoszenia, gdy niższa. Wariant B: zawsze kwota z AWU, tak jak dziś. Treść wiadomości proponuję uzgodnić ze skupem i trzymać w Ustawieniach.</p></div>
+<div class="dec"><h3>Czy ogłoszenie bez decyzji może samo odejść do archiwum po 14 dniach?</h3><p>Dziś powód odrzucenia jest obowiązkowy, więc nieodrzucone ogłoszenia zostają na liście bez końca. Archiwum nie zmieni liczb w Wynikach, bo nie jest decyzją człowieka.</p></div>
+</section>
+</div>
+<script>
+document.querySelectorAll('.tabs button').forEach(function(b){b.addEventListener('click',function(){
+document.querySelectorAll('.tabs button').forEach(function(x){x.setAttribute('aria-selected',x===b?'true':'false')});
+document.querySelectorAll('section[data-p]').forEach(function(s){s.hidden=s.dataset.p!==b.dataset.w});});});
+</script>
+</body></html>
